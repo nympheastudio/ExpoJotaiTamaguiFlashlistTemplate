@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAtom } from 'jotai';
-import { YStack, XStack, H1, Paragraph, Button, Slider, Switch, Label, styled } from 'tamagui';
+import { YStack, XStack, H1, Paragraph, Button, Slider, Label, styled, Group } from 'tamagui';
 import { primaryColorAtom, fontSizeAtom, darkModeAtom } from '../store/settingsAtoms';
 
 const StyledButton = styled(Button, {
@@ -66,15 +66,31 @@ const SettingsScreen = () => {
           onValueChange={(value) => setFontSize(value[0])}
         />
 
-        <XStack ai="center" space="$4" mt="$4">
-          <Label>Dark Mode</Label>
-          <Switch
-            checked={isDarkMode}
-            onCheckedChange={(checked) => setIsDarkMode(checked)}
-            thumbColor={primaryColor} // Set the thumb color to primaryColor
-            trackColor={{ false: "#767577", true: primaryColor }} // Set the track color
-          />
-        </XStack>
+        <Label mt="$4">Dark Mode</Label>
+        <Group orientation="horizontal">
+          <Group.Item>
+            <StyledButton
+              onPress={() => setIsDarkMode(false)}
+              style={{
+                backgroundColor: isDarkMode ? '#f0f0f0' : primaryColor,
+                color: isDarkMode ? '#000' : '#fff',
+              }}
+            >
+              Light
+            </StyledButton>
+          </Group.Item>
+          <Group.Item>
+            <StyledButton
+              onPress={() => setIsDarkMode(true)}
+              style={{
+                backgroundColor: isDarkMode ? primaryColor : '#f0f0f0',
+                color: isDarkMode ? '#fff' : '#000',
+              }}
+            >
+              Dark
+            </StyledButton>
+          </Group.Item>
+        </Group>
       </YStack>
     </YStack>
   );
