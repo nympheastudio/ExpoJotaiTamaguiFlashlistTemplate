@@ -1,8 +1,9 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { useAtom } from 'jotai';
 import { homeCountAtom } from '../store/jotaiState';
 import { primaryColorAtom, fontSizeAtom } from '../store/settingsAtoms';
-import { YStack, H1, H2, styled,Button } from 'tamagui';
+import { YStack, H1, H2, H3, styled,Button } from 'tamagui';
 
 const StyledButton = styled(Button, {
   borderColor: '$color',
@@ -21,14 +22,15 @@ const Home = ({ navigation }) => {
 
   return (
     <YStack f={1} ai="center" jc="center" p="$4" space="$4">
-      <H1 style={{ color: primaryColor }}>Home Screen</H1>
-      <H2 style={{ color: primaryColor, fontSize: fontSize }}>Count: {count}</H2>
+      <H1 style={{ color: primaryColor, fontSize: fontSize }}>Home Screen</H1>
+      <H2 style={{ color: primaryColor, fontSize: fontSize }}>Cool template with </H2>
+      <H3>Tamagui UI, Jotai & FlashList</H3>
       <StyledButton
         size="$4"
         onPress={() => setCount(count + 1)}
         style={{ backgroundColor: primaryColor, color: '#fff' }}
       >
-        Increment
+        Increment Jotai persistant Count: <Text>{count}</Text>
       </StyledButton>
       <YStack space="$3">
         <StyledButton
