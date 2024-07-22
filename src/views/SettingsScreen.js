@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAtom } from 'jotai';
-import { YStack, XStack, H1, Paragraph, Button, Slider, Label, styled, Group } from 'tamagui';
+import { YStack, XStack, H1,H2, Paragraph, Button, Slider, Label, styled, Group } from 'tamagui';
 import { primaryColorAtom, fontSizeAtom, darkModeAtom } from '../store/settingsAtoms';
 
 const StyledButton = styled(Button, {
@@ -23,12 +23,9 @@ const SettingsScreen = () => {
 
   return (
     <YStack f={1} p="$4" ai="center" space>
-      <H1 style={{ color: primaryColor }}>Settings</H1>
-      
-      <Paragraph color={primaryColor} size={fontSize} mt="$4">
-        This is a preview text with the current settings.
-      </Paragraph>
-
+      <H1 style={{ color: primaryColor, fontSize: fontSize  }}>Settings</H1>
+ 
+      <H2 style={{ color: primaryColor, fontSize: fontSize }}>This is a preview text with the current settings.</H2>
       <YStack space="$4" mt="$6" w="80%">
         <Label>Primary Color</Label>
         <XStack space>
