@@ -45,7 +45,7 @@ const Home = ({ navigation }) => {
           onPress={() => navigation.navigate('Data')}
           style={{ backgroundColor: primaryColor, color: '#fff' }}
         >
-          Go to Data Screen
+          Go to FlashList Screen
         </StyledButton>
         <StyledButton
           size="$4"
